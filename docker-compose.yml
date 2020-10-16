@@ -1,0 +1,16 @@
+version: "3.7"
+services:
+  fitness-app:
+    container_name: "fitness-app"
+    image: "fitness-app:latest"
+    env_file:
+      - .env
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      labels:
+        - fastapi-nano
+    volumes:
+        - .:/code
+    ports:
+      - 5000:5000
