@@ -12,10 +12,11 @@ class GlobalConfig(BaseSettings):
     # the class Field is necessary while defining the global variables
     ENV_STATE: Optional[str] = Field(..., env="ENV_STATE")
     HOST: Optional[str] = Field(..., env="HOST")
-
-    # environment specific configs
-    API_USERNAME: Optional[str] = None
-    API_PASSWORD: Optional[str] = None
+    DB_NAME: Optional[str] = Field(..., env="DB_NAME")
+    DB_USERNAME: Optional[str] = Field(..., env="DB_USERNAME")
+    DB_PASSWORD: Optional[str] = Field(..., env="DB_PASSWORD")
+    DB_HOST: Optional[str] = Field(..., env="DB_HOST")
+    DB_PORT: Optional[str] = Field(..., env="DB_PORT")
 
     class Config:
         """Loads the dotenv file."""
@@ -52,4 +53,3 @@ class FactoryConfig:
 
 
 config = FactoryConfig(GlobalConfig().ENV_STATE)()
-# print(config.__repr__())
