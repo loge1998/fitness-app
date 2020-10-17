@@ -21,7 +21,7 @@ def get_user_by_username(conn, username):
 
 
 def update_user(user):
-
+    pass
 
 
 
