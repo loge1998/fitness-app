@@ -9,4 +9,4 @@ class UserInput(BaseModel):
     weight: int
     age: int
     gender: str
-    goals: Dict[str:int]
+    goals: Dict

@@ -3,7 +3,7 @@ from starlette.middleware.cors import CORSMiddleware
 
 from app.routes import userRoutes
 from app.routes.tasks import router as task_routes
-from app.core import auth
+# from app.core import auth
 
 app = FastAPI()
 
@@ -16,6 +16,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(auth.router)
+# app.include_router(auth.router)
 app.include_router(userRoutes.router)
 app.include_router(task_routes)
