@@ -1,4 +1,4 @@
-create table TASKS(
+create table IF NOT EXISTS TASKS(
 	ID serial primary key,
 	TITLE varchar(100),
 	DUE_DATE date null,
