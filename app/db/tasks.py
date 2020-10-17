@@ -39,3 +39,23 @@ def get_task_by_id(task_id):
         cursor.execute(f"SELECT * FROM TASKS WHERE id = '{task_id}'")
         result = cursor.fetchone()
         return dict(result)
+
+
+def get_all_tasks_by_username(username):
+    with get_db_cursor() as cursor:
+        query = f"""
+            SELECT
+                T.*
+            FROM
+                USERS U
+            LEFT JOIN USER_TASKS UT ON
+                U.USER_ID = UT.USER_ID
+            LEFT JOIN TASKS T ON
+                UT.TASK_ID = T.ID
+            WHERE
+                U.USERNAME = '{username}';
+        """
+
+        cursor.execute(query)
+
+        return [dict(i) for i in cursor.fetchall()]
