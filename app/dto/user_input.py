@@ -1,4 +1,4 @@
-from typing import Dict
+from typing import Dict, Any
 from pydantic.main import BaseModel
 
 
@@ -9,4 +9,4 @@ class UserInput(BaseModel):
     weight: int
     age: int
     gender: str
-    goals: Dict[int, int]
+    goals: Dict[Any, Any]

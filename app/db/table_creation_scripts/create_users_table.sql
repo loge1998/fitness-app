@@ -16,7 +16,7 @@ create table if not exists goals(
 create table if not exists user_goals(
 	user_id INT not null,
 	goal_id INT not null,
-	value INT not null,
+	value text not null,
 	primary key(user_id,goal_id),
 	CONSTRAINT userid_constraint
       FOREIGN KEY(user_id)

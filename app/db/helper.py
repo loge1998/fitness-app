@@ -13,6 +13,7 @@ class DbConnectionPool:
     @staticmethod
     def get_db_connection_pool():
         if not DbConnectionPool.__pool:
+            print(config.DB_NAME, config.DB_PASSWORD)
             logging.info("DbConnectionPool initialising connection pool")
             DbConnectionPool.__pool = ThreadedConnectionPool(1, 10,
                                                              database=config.DB_NAME,
